@@ -1,0 +1,46 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+
+```{r}
+# Loading the data from a url
+df <- read.csv('https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/d546eaee765268bf2f487608c537c05e22e4b221/iris.csv')
+
+```
+
+
+
+
+```{r}
+# To see the structure of data frame
+#str(df)
+
+# To see #.of columns
+#ncol(df)
+
+# To see names of the columns 
+col.names <- colnames(df)
+
+# No.of total records
+nrow(df)
+```
+
+
+
+```{r}
+# Loading from a file
+df <- read.csv("../Data/forestfires.csv")
+```
+
+
+
+```{r}
+# Loading from the inbuilt datasets
+library(datasets)
+# Loading iris dataset
+iris
+```
+
