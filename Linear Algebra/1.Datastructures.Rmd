@@ -1,0 +1,100 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+### Datastructures in R
+## Vectors, Matrix, Array, List, Dataframe
+
+# Vector declaration
+v <- vector(mode = "numeric", length = 10)
+# adding elements into the vector
+for(i in 1:10){
+  v[i] <- i  # vector indexes starts from 1, not 0
+}
+print(v)
+```
+
+
+```{r}
+# Different ways to declare vector
+v <- c(1,2,3,4,5) # c is combine here
+v <- 1:10
+v <- seq(1,10,by = 1) # generates sequence of numbers from start to #end 
+v <- rep(3, 10) # constructs vectors with all 3's of length 10
+```
+
+```{r}
+  # Arthemetic operations with vectors
+# vector operations with scars
+a <- c(1,2,3,4)
+addition <- a + 2 # adds scalar 2 to each element
+subtraction <- a-2
+multiplication <- a*2
+division <- a/2
+
+
+
+# vector operations with vectors
+a <- c(1,2,3,4)
+b <- c(10,11)
+
+sum <- a+b #if the lengths are not compitable then it will cycle #from first
+
+# corresponding values are added and multiplied
+mul <- a*b
+```
+
+```{r}
+# cheking if given object is vector
+v <- 1:10
+is.vector(v)
+class(v) # gives numeric, type of object that vector contains
+```
+
+```{r}
+# Matrix in R
+# declaration 
+m <- matrix(c(1,2,3,4), nrow = 2)
+# by default it fills column first
+m <- matrix(c(1,2,3,4), nrow = 2, byrow = TRUE) #row filled first
+m
+```
+
+```{r}
+# accessing elements of matrix
+#m[,1] # returns first column of the matrix
+m <- matrix(c(1,2,3,4,5,6,7,8,9), nrow=3, byrow = TRUE)
+m[1:2, 1:2]
+```
+```{r}
+# getting the shape of the matrix
+#dim(m) #gives 3,3 . 3 Elements in x and y directions
+# row sum 
+#rowSums(m)
+# column sm
+#colSums(m)
+
+# scaling, normalizing the data
+scale(m)
+```
+```{r}
+# Matrix vector multiplication
+m <- matrix(c(1,2,3,4), nrow = 2)
+v <- c(2,4)
+m%*%v # Matrix vector multiplication 
+a <- matrix(c(1,2,3,4), nrow = 2, byrow = TRUE)
+b <- matrix(c(2,0,1,2), nrow = 2, byrow = TRUE)
+a%*%b  # Matrix-Matrix multiplication
+```
+```{r}
+# Matrix operations
+#transpose of a matrix
+a
+t(a) # tranpose of a matrix
+library(matlib)
+inv(a)
+```
+
