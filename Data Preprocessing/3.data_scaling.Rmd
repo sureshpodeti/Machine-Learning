@@ -1,0 +1,54 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+
+```{r}
+### Feature scaling and mean normalization are important step in 
+### preprocessing
+
+## mean normalization=makes sure each feature data is distributed 
+## around  mean 
+## to compute, find mean of the feature data, and update each
+## feature value as (xi - mean)
+
+## feature scaling is needed beacuse some features reported in meters,
+## some may be in inch, and some may be kg. To bring them to common 
+## scale,. Divide mean normalized points by the standard deviation 
+
+# Load the data
+df <- read.csv('https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/d546eaee765268bf2f487608c537c05e22e4b221/iris.csv')
+
+head(df) # to see first 6 rows of dataframe
+tail(df)  # to see last 6 rows of dataframe
+```
+```{r}
+# Do data cleaning step
+# Look at unique column values
+unique(df$species)
+df$species <- as.character(df$species)
+n.features <- ncol(df)
+df[df$species=="setosa", n.features] <- 0
+df[df$species=="versicolor", n.features] <- 1
+df[df$species=="virginica", n.features] <- 2
+df$species <- as.numeric(df$species)
+head(df)
+```
+
+
+
+
+```{r}
+## To apply scaling and mean normalization use following comand
+df <- scale(df[,1:n.features-1]) ## scale only features not target #variable
+```
+
+
+
+
+```{r}
+head(df)
+```
+

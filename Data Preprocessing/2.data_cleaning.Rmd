@@ -1,0 +1,53 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+. 
+
+```{r}
+## Often data comes with irregularities ( missing data, other formats)
+# Load a data set
+df <- read.csv('https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/d546eaee765268bf2f487608c537c05e22e4b221/iris.csv')
+
+
+df
+```
+
+```{r}
+## Lookinto the structure of data 
+str(df)
+## species column is of factor type
+## All feature should be in the same data type format
+## convert it into type character 
+df$species <- as.character(df$species)
+df
+```
+
+```{r}
+# see unique values of the Species column
+unique(df$species)
+```
+
+```{r}
+# Assign each with numerical label
+# setosa -0, versicolor-1, virginica - 2
+n.features <- ncol(df)
+df[df$species=='setosa', n.features] <- 0
+df[df$species=='versicolor', n.features] <- 1
+df[df$species=='virginica', n.features] <- 2
+
+# Eventually converting species type to numeric
+df$species <- as.numeric(df$species)
+df
+```
+
+```{r}
+# look for any missing or NA values 
+is.na.data.frame(df)
+```
+```{r}
+# Omitting the rows with any of the column value is NA
+newdf <- na.omit(df)
+newdf
+```
+
