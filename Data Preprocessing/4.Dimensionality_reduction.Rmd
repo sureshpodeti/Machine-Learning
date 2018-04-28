@@ -1,0 +1,187 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+### Why dimensionality reduction?
+### In order to remove irrelavant features, and redundant=no longer
+### needed features from the dataset
+
+### This will reduce space complexicity, and speed up the algorithm
+### for simplicity of the model, and accurate model.
+
+
+### IMPORTANT SUGGESTION: First run machine learning algorithm on ### the raw data, If results are not conviencing, then go 
+### for dimensionality reduction. 
+
+
+### dimensionality reduction involves two things:
+### 1. Feature selection ,2. Feature extraction
+
+
+### Feature selection find the features which are highly correlated
+### to the target variable, we find correlation matrix to get that.
+```
+
+
+
+
+```{r}
+### Correlation matrix
+df <- read.csv('https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/d546eaee765268bf2f487608c537c05e22e4b221/iris.csv')
+
+head(df)
+```
+
+
+
+```{r}
+### The order is like this :
+### Data cleaning -> scaling/mean normalization -> run machine on 
+### raw data (if results not conviencing->dimensionality ###reduction)
+
+
+## The cleaning step
+unique(df$species)
+df$species <- as.character(df$species)
+n.features <- ncol(df)
+df[df$species=="setosa", n.features] <- 0
+df[df$species=="versicolor", n.features] <- 1
+df[df$species=="virginica", n.features] <- 2
+df$species <- as.numeric(df$species)
+head(df)
+```
+
+```{r}
+x <- scale(df[,1:n.features-1]) # feature scaling/mean #normalization
+y <- df[,n.features]
+```
+
+
+
+
+```{r}
+# finding correlation 
+cor(x,y) # usually values are between -1 and 1
+# values between -1 to -5 and 5 to 1 are appriciable
+```
+
+```{r}
+## Finding correlation matrix
+cor(df)
+```
+
+```{r}
+### Principle component analysis is the technique we use to
+### reduce the dimensions
+
+
+### suppose we have n #.of features and we want to reduce it to
+### k #.of features.(Why K, and how to choose K? will tell later)
+
+### How we will reduce the dimensions?
+
+### 1. Get the k vectors, which describes the surface of the ###dimensions we want to project each point. Usually find vector
+### space of k vectors.
+
+
+###2.Project each point on to the surface such that each point
+### at the Shortest distance from the surface. perperndicular 
+### projection
+
+### Projected points are new values of the k features
+
+
+### How to impliment it?
+## first get the correlation matrix of the features only(not ##target variable)
+cor.matrix <- cor(df[,-n.features])
+
+## then, use svd(singular value decomposition)to factorize the
+## correlation matrix, svd is the best well known techque to 
+## factorize any given matrix
+
+## use svd command to factorize the correlation matrix
+factored.matrix <- svd(cor.matrix)
+cor.matrix
+```
+
+
+
+
+```{r}
+## factored matrix has M = u*s*v
+## M has mxm , m being #.of features
+## u ,  mxm
+## s is diagonal matrix mxm
+## Dont bother about v matrix
+factored.matrix
+
+## here factored.matrix$d is diagonal matrix
+
+## factored.matrix$u is the m vector matrix,take K vectors
+## (column vectors), now these K vectors are the vectors 
+## whose column space we want to project the m dimensional data.
+## till, now we found the space on to which we need to 
+## project the data
+
+factored.matrix
+
+
+```
+```{r}
+## Project the data onto the column space transpose(u)*x
+## where x is data
+U <- as.matrix(factored.matrix$u)
+
+## take only k vectors k =3 (for suppose)
+k <- 3
+U.reduced <- U[,1:k] # mxk 
+X <- as.matrix(df[,-n.features])  # nxm , n rows , m features
+reduced.features <- X %*% U.reduced # nxm * mxk = 3xm = nx3
+reduced.features
+```
+
+```{r}
+ # Now apply the machine learning algorithm on reduced features
+### What value of K need to be choosen, and how?
+# iteratively choose from 1,...k such that you results are #convincing
+
+## how we can say we are convienced with the results?
+
+## Variation should be retained.
+
+## Average squared projection error : xi - xapprox 
+## Total variatio nin the data, 
+
+## condition is: 
+#Avg. squared projection error/TOTAL Variation
+## in data <= 0.01 i.e less than or equal to 100%
+
+
+## How to find that ?
+
+
+# our svd, returned d matrix is digonal matrix with mxm 
+#only diagonal elements are non-zero
+
+# take sum of k values / sum of m values <= 0.01 
+# iteratively find the k
+for(i in 1:4){
+  print(sum(factored.matrix$d[1:i])/sum(factored.matrix$d))
+}
+## output: 0.727, 0.958, 0.99,1
+
+# Output suggests that reducing it to 3 features reduces
+# the dimensionality
+```
+
+
+```{r}
+### Lastly Again rememer: Given a dataset , Don't go for 
+# dimensionality reduction at very first. Firstly, apply 
+# machine learning algorithm on the raw data, and if the results
+# are not conviencing then and only go for dimensionality #reduction using Principle component Analysis
+```
+
