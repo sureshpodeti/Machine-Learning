@@ -95,6 +95,61 @@ a%*%b  # Matrix-Matrix multiplication
 a
 t(a) # tranpose of a matrix
 library(matlib)
-inv(a)
+inv(a) # inverse of a matrix
+```
+
+
+```{r}
+# List datastructure in R
+# declaration
+l <- list(name="suresh", age=25, salary=34560)
+
+
+# each item itself is list
+# accessing list items
+#l$name
+#l$age
+#l$salary
+
+
+#l[[1]] # note double brackets
+#l[1]$name # both are equivalent
+
+# declaration of list
+l <- vector(mode = "list", length = 10)
+#l
+```
+
+
+
+
+
+
+
+```{r}
+# Data frame in R
+# list of lists, or 2 dimensional lists
+l <- list(name=c("suresh", "harish", "vasantha"), age=c(25,23,19), salary=c(34500, 46700, 67800))
+
+# declaring a dataframe
+df <- data.frame(l)
+df
+```
+
+```{r}
+# no.of columns
+n.col <- ncol(df)
+#names of the columns
+colnames(df)
+
+
+
+# accessing the item from dataframe
+# accessing column 
+df$name # each column is list
+
+# scaling a particular column
+df$salary <- scale(df$salary)
+df
 ```
 
