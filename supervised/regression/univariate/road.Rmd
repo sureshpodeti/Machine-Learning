@@ -1,0 +1,99 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+
+```{r}
+# Loading the dataset
+df <- read.table('https://raw.githubusercontent.com/eggplantbren/STATS331/master/Code/Regression/road.txt')
+
+
+n.features <- ncol(df)
+n.records <- nrow(df)
+head(df)
+```
+
+
+```{r}
+# Data preprocessing
+# checking if dataset contains missing values
+df <- na.omit(df)
+
+# dataset seems not having any missing values
+# data feature values are all numeric 
+```
+
+
+
+
+```{r}
+# splitting the dataset into train and test data
+library(caret)
+index <- createDataPartition(df[,n.features], p=0.8, list = FALSE)
+# partitioning the feature scaling /mean normalization
+y.train <- df[index,n.features]
+x.train <- scale(df[index,1:n.features-1])
+
+y.test <- df[-index,n.features]
+x.test <- scale(df[-index,1:n.features-1])
+```
+
+
+
+```{r}
+# constructing the model, using linear algebra projections 
+# concept
+
+ones <- rep(1,length(y.train))
+A <- matrix(c(ones,x.train), nrow = length(y.train))
+b <- y.train
+A       
+       
+```
+```{r}
+## Since, Ax = b doesnot have solution, we will find
+## approximate solution,x = inv(transpose(A)*A)*(tranpose(A)*b)
+library(matlib)
+x <- inv(t(A)%*%A)%*%(t(A)%*%b)
+x
+```
+
+
+```{r}
+## predecting for the test data
+ones <- rep(1,length(y.test))
+A.test <- matrix(c(ones,x.test), nrow = length(y.test))
+b <- y.test
+y.pred <- A.test%*%x
+```
+
+
+
+
+
+
+
+
+```{r}
+# visualizing the results
+par(mfrow=c(1,1))
+plot(y.test~x.test)
+points(y.pred~x.test, col="blue")
+abline(a = x[1,1], b=x[2,1], col="red")
+```
+
+
+
+
+```{r}
+ ### Linear regression using Caret in R
+lm <- train(V2~., df, method='lm')
+y.pred  <- predict(lm)
+par(mfrow=c(1,1))
+plot(df[, 2]~df[,1])
+points(y.pred~df[,1], col="red", type="l")
+
+```
+

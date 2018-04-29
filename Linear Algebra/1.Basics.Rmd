@@ -13,43 +13,121 @@ output: html_notebook
 # where first element is in x1 direction ,second element in x2.
 #last one in x6 dimension.
 
+```
 
 
+
+
+
+
+```{r}
 ### What is matrix?
 # Suppose, how would you represent couple of vectors pointed in #different direction?. Matrix is a single container which represent
 #differently pointed vector in one notation.
 # a <- c(1,2);b <- c(3,4)
 # m <- matrix(c(a, b), nrow=2)
+```
 
 
+
+
+
+
+```{r}
 ### Matrix vector multiplication?
 # see image 
 
 
 ### Matrix-Matrix multiplication?
 # see image
+```
 
 
+
+
+```{r}
 
 ### tranpose of a matrix?
-
+## see image
 
 
 ### Inverse of a matrix?
-
-
-
-### Vector space?
-
-### Column space?
-
-### Basis of a vector space?
-
-### Projection?
-
-### Solving Ax=b, where we don't have solution?
-
-
-
+## see image
 
 ```
+
+
+
+
+```{r}
+### Vector space?
+## space spaned by the given vectors, spanned space is obained by
+## adding both vectors, mulplying them. and taking linear ##combination combintaition.
+
+
+
+### Column space?
+## In a matrix, columns represent vectors. so, those vectors spanned ## space is column space
+
+### Basis of a vector space?
+## Basic vectors required to represent the vector space called basis
+```
+
+
+
+
+
+```{r}
+
+### Projection?
+## see image
+
+### Solving Ax=b, where we don't have solution?
+## If don't have solution, always for any right hand side in the eq.
+## In order to have the solution to equation Ax=b, then 
+## b vectors must be in the vector space spanned by columns of 
+# matrix A (Column space)
+
+# but we can find approximate solution, to the equation, using
+## projection concepts.
+
+
+## solution is:
+## Ax = b, multiply with A tranpose on both sides
+## t(A) * A*x = t(A)*b
+## x = inv(t(A)*A)*(t(A)*b)
+```
+
+
+
+
+
+```{r}
+### Linear Regression/least squares regression
+## Suppose we have following data 
+# x = (1,2,3), y=(1,2,2)
+## fit a start line to the points
+
+# the model we are trying to build is y= alpha + beta*x
+## write the equations, 
+#1 = alpha + beta , 2 = alpha + 2*beta , 2 = alpha+ 3*beta
+
+#Now, the task is to find alpha, and beta in order to find the #model
+
+## constructing matrices
+A <- matrix(c(1,1,1,1,2,3), nrow = 3)
+b <- c(1,2,2) 
+# unfortunatly b is not in column space of matrix A,
+# Hence, we dont have exact solution, but we can find approximate
+# solution using formula x = inv(t(A)*A)*(t(A)*b)
+library(matlib)
+x <- (inv(t(A)%*%A))%*%(t(A)%*%b)
+
+# now, parameter values are 
+alpha <- x[1,1]
+beta <- x[2,1]
+summary(lm(b ~c(1,2,3))) # check the model parameters using 
+# inbuilt linear model
+
+```
+
