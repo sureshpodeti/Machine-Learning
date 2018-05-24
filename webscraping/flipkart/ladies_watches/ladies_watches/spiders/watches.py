@@ -34,7 +34,7 @@ class WatchesSpider(scrapy.Spider):
         rating = [float(item) for item in rating]
         offer = [int(item[:2]) for item in offer]
         buyer = [int(item.strip('()').replace(',','')) for item in buyer]
-        
+
 
         yield{
             'price': price,
