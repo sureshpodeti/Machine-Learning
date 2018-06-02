@@ -4,10 +4,6 @@ df.age <- read.csv('/home/podeti/Desktop/AI/Machine-Learning/Data/ex2Data/ex2x.d
 df.height <- read.csv('/home/podeti/Desktop/AI/Machine-Learning/Data/ex2Data/ex2y.dat', header=FALSE)
 
 
-# data visualization 
-plot(df.height$V1 ~df.age$V1, col='red')
-
-
 # data preprocessing
 
 library('caret')	
@@ -54,7 +50,7 @@ x_train_ones <- matrix(data=c(ones, x_train), nrow=m, byrow=FALSE)
 theta <- matrix(data = rep(0, 2), nrow=n, byrow=FALSE)
 
 # define error tolerance
-e <- 1e-5
+e <- 1e-10
 
 # define learning rate
 alpha <- 0.01
@@ -62,9 +58,18 @@ alpha <- 0.01
 y_train <- matrix(data=c(y_train), nrow=length(y_train), byrow=FALSE)
 
 
-gradient_descent(x_train_ones, y_train, theta, m, e, alpha)
+theta <- gradient_descent(x_train_ones, y_train, theta, m, e, alpha)
 
 
 
-data <- data.frame(matrix(data=c(x_train, y_train), nrow=m, byrow=FALSE))
-summary(m <- lm(X2~X1, data=data))
+# results  visualization 
+par(mfrow=c(1,1))
+m_test <- length(x_test)
+
+ones <- rep(1,m_test)
+x_test_ones <- matrix(data=c(ones, x_test), nrow=m_test, byrow=FALSE)
+y_test_pred <- x_test_ones%*%theta
+
+plot(y_test ~x_test, col='blue')
+abline(a=theta[1], b=theta[2], col="red")
+
