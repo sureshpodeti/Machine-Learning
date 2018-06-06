@@ -1,0 +1,36 @@
+Hours <- c(0.50, 0.75, 1.00, 1.25, 1.50, 1.75, 1.75, 2.00, 2.25,
+           2.50, 2.75, 3.00, 3.25, 3.50,    4.00,   4.25,   4.50,   4.75,
+           5.00, 5.50)
+Pass    <- c(0, 0, 0, 0, 0, 0, 1,   0, 1, 0, 1, 0, 1, 0, 1, 1, 1,   1, 1, 1)
+
+data <- matrix(data=c(Hours, Pass), nrow=length(Hours), byrow=FALSE)
+
+data_y_0 <- data[data[, 2] == 0, ]
+data_y_1 <- data[data[, 2] == 1, ]
+
+x_y_0 <- data_y_0[,1]
+x_y_1 <- data_y_1[,1]
+
+# computing mean vectors
+mu_y_0 <- mean(x_y_0)
+mu_y_1 <- mean(x_y_1)
+
+# computing covariance matrix
+covar_y_0 <- cov(matrix(x_y_0, nrow=length(x_y_0), byrow=FALSE))
+covar_y_1 <- cov(matrix(x_y_1, nrow=length(x_y_1), byrow=FALSE))
+
+
+par(mfrow=c(1,2))
+plot(dnorm(x_y_0, mean=mu_y_0, sd=covar_y_0[1,1]) ~ x_y_0, type='l', col='red')
+plot(dnorm(x_y_1, mean=mu_y_1, sd=covar_y_1[1,1]) ~ x_y_1, type='l', col='blue')
+
+
+# check for 6 hours
+p_x_y_0 <- dnorm(9, mean=mu_y_0, sd=covar_y_0[1,1])
+p_x_y_1 <- dnorm(9, mean=mu_y_1, sd=covar_y_1[1,1])
+
+p_y_0 <- length(x_y_0)/dim(data)[1]
+p_y_1 <- 1 - p_y_0
+
+a <- p_x_y_0 * p_y_0/(p_x_y_1 + p_x_y_0)
+b <- p_x_y_1 * p_y_1/(p_x_y_1 + p_x_y_0)

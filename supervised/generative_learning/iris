@@ -1,0 +1,35 @@
+data <- iris[1:100, ]
+data$Species <- as.character(data$Species)
+data$Species[data$Species=='setosa'] <- '0'
+data$Species[data$Species=='versicolor'] <- '1'
+data$Species <- as.numeric(data$Species)
+
+n <- ncol(data)
+
+# seperate data by different classes
+
+data_x_y_0 <- scale(data[1:50, -5])
+data_x_y_1 <- scale(data[51:100, -5])
+
+# find mu and covariance matrix
+mu_y_0 <- colSums(data_x_y_0[, -5])
+mu_y_1 <- colSums(data_x_y_1[, -5])
+
+covar_y_0 <- cov(data_x_y_0)
+covar_y_1 <- cov(data_x_y_1)
+
+# modelling p_x_y_1 and p_x_y_0
+p_y_0 <- 0.5
+p_y_1 <- 0.5
+
+
+install.packages('matlib')
+library(matlib)
+x_new <- matrix(data=c(5.1,3.3,1.7,0.5), nrow=1, byrow=TRUE)
+p_x_y_0 <- (1/((2*pi)*sqrt(det(covar_y_0))))*exp(-(1/2)*((x_new - mu_y_0)%*%inv(covar_y_0)%*%t(x_new - mu_y_0))) 
+
+p_x_y_1 <- (1/((2*pi)*sqrt(det(covar_y_1))))*exp(-(1/2)*((x_new - mu_y_1)%*%inv(covar_y_1)%*%t(x_new - mu_y_1)))
+
+p_y_x_0 <- p_x_y_0*p_y_0/(p_x_y_0+p_x_y_1)
+p_y_x_1 <- p_x_y_1*p_y_1/(p_x_y_0+p_x_y_1)
+

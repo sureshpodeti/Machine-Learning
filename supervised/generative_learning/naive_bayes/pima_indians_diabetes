@@ -1,0 +1,90 @@
+# Load the dataset
+df <- read.csv('https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv')
+
+
+n <- ncol(df)
+
+# convert the dataframe into matrix
+data <- data.matrix(df)
+
+
+# split the data into test and train data
+library(caret)
+partitionIndex <- createDataPartition(data[, n], p=0.7, list=FALSE)
+
+data_train <- data[partitionIndex, ]
+data_test <- data[-partitionIndex, ]
+
+
+# separate data by different classes 
+data_train_y_0 <- data_train[data_train[, n]==0, ]
+data_train_y_1 <- data_train[data_train[, n]==1, ]
+
+m_train_y_0 <- dim(data_train_y_0)[1]
+m_train_y_1 <- dim(data_train_y_1)[1]
+m_train <-  m_train_y_0 + m_train_y_1
+p_y_1 <- m_train_y_1 / m_train
+p_y_0 <- (1-p_y_1)
+
+
+data_train_features_y_0 <- data_train_y_0[,-n]
+data_train_target_y_0 <- data_train_y_0[,n]
+
+data_train_features_y_1 <- data_train_y_1[,-n]
+data_train_target_y_1 <- data_train_y_1[,n]
+
+# scale the features 
+data_train_features_y_0 <- scale(data_train_features_y_0)
+data_train_features_y_1 <- scale(data_train_features_y_1)
+
+# compute the mean vectors and covariance matrices
+mu_data_y_0 <- colMeans(data_train_features_y_0)
+mu_data_y_1 <- colMeans(data_train_features_y_1)
+
+covariance_y_0 <- cov(data_train_features_y_0)
+covariance_y_1 <- cov(data_train_features_y_1)
+
+library(matlib)
+likelihood <- function(x_new, m, c){
+  p_x_y <- (1/(2*pi)^((n-1)/2) *(det(c)^(1/2) ))*(exp((-1/2)*t(x_new - m)%*%inv(c)%*%(x_new-m)))
+  
+  return(p_x_y)
+
+}
+
+
+# scale the test data
+test_data_features <- data_test[, -n]
+test_data_target  <- data_test[, n]
+test_data_features <- scale(test_data_features)
+
+ 
+test_size <- dim(test_data_features)[1]
+counter = 0
+
+for(i in 1:test_size){
+  likelihood_x_y_0 <- likelihood(test_data_features[i,], mean_data_y_0, covariance_y_0)
+  likelihood_x_y_1 <- likelihood(test_data_features[i,], mean_data_y_1, covariance_y_1)
+
+  log_likelihood_x_y_0 <- log(likelihood_x_y_0)
+  log_likelihood_x_y_1 <- log(likelihood_x_y_1)
+
+  log_p_y_1 <- log(p_y_1)
+  log_p_y_0 <- log(p_y_0)
+
+  log_p_y_1_given_x <- (log_likelihood_y_1 + log_p_y_1) - log(likelihood_x_y_1*p_y_1 + likelihood_x_y_0*p_y_0) 
+  log_p_y_0_given_x <- (log_likelihood_y_0 + log_p_y_0) - log(likelihood_x_y_1*p_y_1 + likelihood_x_y_0*p_y_0) 
+  
+  
+  result <- 0 
+  if(log_p_y_0_given_x < log_p_y_1_given_x){
+    result <- 1
+  }
+  if(result == test_data_target[i]){
+    counter = counter + 1
+  }
+}
+
+
+
+print((counter/test_size)*100)
