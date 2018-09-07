@@ -26,10 +26,9 @@ template<class T> T Sum<T>::sum(){
 
 
 // takes array of elements and returns sum
-template<class T> T sum(T *A ){
+template<class T, int size=6> T sum(T *A ){
   T result = A[0];
-  int size = sizeof(A)/sizeof(T);
-  cout << "size:" << size << endl;
+ 
   for(int i = 1; i<size;i++){
     result += A[i];
   }
