@@ -99,9 +99,10 @@ using namespace Eigen;
   cout << "\nMultiplication element wise\n";
   cout << I*K << endl;
 
-  //Relational operations; All element wise operations can be applied element-wise
+  //Relational operations;only (==) and (!=) are only relational operations on matrix
   cout << "two matrices same:" << (M1 == M2) << endl; // it will not work if M1 == M2
 
+  // but, all relational operations are applied on elment wise matrix
   cout << "\ncheck if M1<=M2\n";
   cout << (M1.array() <= M2.array()) << endl;
   
