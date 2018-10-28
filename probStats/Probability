@@ -1,0 +1,17 @@
+What is Probability?
+  Is it (#.of possible outcomes/ total #.of possible outcomes)?
+  
+  
+  Think of following cases:
+   1. Fair-Unbiased Coin: P(getting heads)  = possibilty/ total no.of possiblities
+                          P(getting heads)  = 1/2 = 0.50
+                          
+   2. Rough-Biased Coin: P(getting heads) = possibilty/ total no.of possiblities  [According to defination]
+                                          = 1/2 = 0.50  (Is this correct??)
+                                          
+    No, the defination is not correct.
+    
+    Then, what is the correct defination?
+     P(getting heads) = chance/fraction of getting heads by performing large number of trials(infinite trails) by flipping coin
+     , if we do that there is a high chance of getting P(getting heads) close to 0.50 (approx) [Look at central limit theorem]
+    
