@@ -1,0 +1,20 @@
+
+Probability models are divided into:
+  1. Discrete probability
+  2. Continous probability
+  
+  based on their sample spaces.
+  
+  If sample space S is countable set, this refers to a discrete probability model;
+  Since, S is countable, we can list all the elements in S;
+     S = {s1, s2, s3, ...}
+
+  If A ⊂ S is an event, then A is also countable, and we can write as 
+          P(A) = ∑ P(sj) ; Thus is a countable sample space, to find probability of an event, all
+          we need to do is sum the probability of individual elements in that set.
+          
+          
+          
+  Continous Probability Model:
+    Let S be sample space, S ∈[0,1]. This is an uncontable set; We cannot list the elements in the set.
+    We use integration instead of summation here.
