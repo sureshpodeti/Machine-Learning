@@ -1,0 +1,27 @@
+Random Experiment:
+      Is a process by which we observe something uncertain
+
+Outcome:
+      Result of a random experiment
+     
+Sample Space:
+      Set of all possible outcomes
+      
+Event:
+      A subset of the sample space
+      
+Eg:  Tossing a fair-unbiased coin 3 times 
+     This process is random beacuse we observe something uncertain.
+     Outcome is the result of this experiment.
+     
+     Sample space = {(H,H,H),(H,H,T),(H,T,H),(T,H,H),(H,T,T),(T,H,T),(T,T,H),(T,T,T)}
+     Each subset in the set an Event
+     
+     
+Tossing a fair-unbiased coin:
+  It is random experiment: we observe something uncertain 
+  Outcomes are getting head or tail
+  Sample Space = {H, T}
+  Event could be:
+     Getting heads
+     Getting tails
