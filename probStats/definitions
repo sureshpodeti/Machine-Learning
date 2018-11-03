@@ -35,14 +35,32 @@ Tossing a fair-unbiased coin:
   
  ** Equally likely Events - Both events are equal in probability in occurance
  
- ** Mutually exclusive Events- 
+ ** Mutually exclusive Events- If two events are disjoint or both the events cannot occur at the same time we say they are Mutually
+  Exclusive Events. Eg: Tossing a coin, S = {HEAD, TAIL}
+  
+  Events A = {HEAD} Getting heads, B = {TAIL} Getting tails both cannot occur at the same time for one trail.
+  
+  Hence, Event A and B are disjoint or Mutually Exclusive
  
  
- ** Disjoint Events
+ ** Disjoint Events - Mutually exclusive Events
  
  
  
- ** Dependent Events
+ ** Dependent Events - Probability of occurance of Event B changes in the presence of occurance of Event A.
+   Probability of one event depends on the occurance of other event.
+   
+   Eg: Coin toss,Event A = p({HEAD}) and Event B = p({TAIL}) are dependent events.
+   if we know occurance of getting heads, that affects the occurance of other event of getting tails
  
  
- ** Independent Events
+ ** Independent Events - Two events are independent if they are disjoint. Probability of occurance of one doesnot affect the
+ Probability of other. Some times independence of two events is quite clear because the two events seem
+ not to have any physical interaction with each other(ex: event A = coin toss, event B=rolling die) . At other times, 
+ it is not as clear and we need to check if they satisfy the independence condition. P(A ∩ B)  = P(A) * P(B)
+ 
+ 
+example: I pick a random number from {1,2,3,⋯,10}, and call it N. Suppose that all outcomes are equally likely. 
+Let A be the event that N is less than 7, and let B be the event that N is an even number. Are A and B independent?
+
+solution: P(A) = 0.60, P(B) = 0.50 , P(A ∩ B)  = P(A) * P(B) , 0.30 = 0.60*0.50, Yes they are independent
