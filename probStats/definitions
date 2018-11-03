@@ -1,14 +1,15 @@
 Random Experiment:
-      Is a process by which we observe something uncertain
+      Is a process by which we observe something uncertain Eg. Tossing a coin, Rolling die
 
 Outcome:
-      Result of a random experiment
+      Result of a random experiment, Eg: Out come of coin toss are HEAD or TAIL
      
 Sample Space:
-      Set of all possible outcomes
+      Set of all possible outcomes Eg: S = {HEAD, TAIL}, S = {1,2,3,4,5,6}
       
 Event:
-      A subset of the sample space
+      A subset of the sample space 
+      Eg: Event of getting head on first coin toss {HEAD}, Even of getting even number when roll a die {2,4,6}
       
 Eg:  Tossing a fair-unbiased coin 3 times 
      This process is random beacuse we observe something uncertain.
@@ -25,3 +26,23 @@ Tossing a fair-unbiased coin:
   Event could be:
      Getting heads
      Getting tails
+
+
+** Probability is only defined for events. i.e P({2,4,6}) probability of getting even number when we roll a die
+
+** Equally likely Outcomes: Equal likeness or probability of occurance of each outcome 
+  Eg: Coin toss, S ={HEAD, TAIL}, p({HEAD}) = p({TAIL}) = 0.50
+  
+ ** Equally likely Events - Both events are equal in probability in occurance
+ 
+ ** Mutually exclusive Events- 
+ 
+ 
+ ** Disjoint Events
+ 
+ 
+ 
+ ** Dependent Events
+ 
+ 
+ ** Independent Events
