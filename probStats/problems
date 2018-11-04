@@ -1,0 +1,19 @@
+1.Q) In a presidential election, there are four candidates. Call them A, B, C, and D. Based on our polling analysis, 
+we estimate that A has a 20 percent chance of winning the election, while B has a 40 percent chance of winning. 
+What is the probability that A or B win the election?
+
+Answer: In election any one of only one candidate wins out of A,B,C,D.
+        Winning probabilities:
+        P(A) = 0.20, P(B) = 0.40
+        
+        Outcome of the events , S(sample space)  = {A,B,C,D}
+        Each outcome is not equally likely. Since, P(A) ≠ P(B). 
+        (For outcomes to be equally likely probabilities of occurance of each outcome must be same)
+        
+        In elections we assume winninig of any of the both the candidates is not possible
+        outcomes comes are disjoint, cannot both occur at the same time.
+        Hence, they are mutually exclusive outcomes, dependent outcomes
+        
+        P(A∪B) = P(A) + P(B) = 0.20 + 0.40 = 0.60
+        
+        
