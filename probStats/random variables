@@ -11,9 +11,11 @@
       
       X  = {0,1,2,3,4,5}
       
-*Range of random variable*
+**Range of random variable**
   Represented as Rx or Range(X); set of possible values of X, the random variable
   
   Range(X)=RX={0,1,2,3,4,5}
       
+  **Discrete random variable**
       
+  X  is a discrete random variable, if its range is countable.
