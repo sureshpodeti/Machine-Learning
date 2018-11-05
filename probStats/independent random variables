@@ -1,0 +1,40 @@
+Two events are independent if we have P(A,B) ( P(A and B) = P(A B)) = P(A) P(B) 
+
+Definition:
+  Consider two discrete random variables X, Y. we say that X,and Y are independent if P(X=x, Y=y) = P(X=x)*P(Y=y) ∀x,y.
+  
+  In general,
+    P(X ∈  A, Y ∈  B) = P(X ∈ A) P(Y ∈ B), ∀ sets A,B.
+    
+    In other words, if X and Y are independent we can write; P(Y=y|X=x) = P(Y=y), ∀ x,y
+    Knowing X=x doesnot change the probability of other event where Y=y.
+    
+    
+    
+ Example: I toss a coin twice and define X to be the number of heads I observe. Then, I toss the coin two more times and define
+ Y to be the number of heads that I observe this time. Find P((X<2) and (Y>1))
+ 
+Solution: X = {0,1,2}
+          Y = {0,1,2}
+          Let event A be X<2 i.e X= {0,1}
+          Let event B be Y>1 i.e Y = {2}
+          
+          P(A ∩ B) = P({0,1} ∩ {2}) = P(X<2) *P(Y>1)
+          (P(X=0) + P(X=1)) * P(Y=2)  = (1/4+2/4) * (1/4) = 3/16
+          
+ 
+ Q. Two fair coins tossed simultaneously, Let X, and Y be the random variables that defines
+ no.of heads observed in the first coin, and in the second coin respectively.
+ 
+ Prove X,Y are independent random variables
+ 
+  P(X=x, Y=y) = P(X=x)*P(Y=y) ∀ x,y
+  
+  P(X=0,Y=0) = 1/4 = P(X=0) *P(Y=0) = 1/2*1/2 = 1/4
+  P(X=0,Y=1) =  1/4 = P(X=0) * P(Y=1) = 1/2*1/2 = 1/4
+ 
+  P(X=1, Y=0) = 1/4 = P(X=1)*P(Y=0) = 1/2* 1/2  = 1/4
+  P(X=1, Y=1) = 1/4 = P(X=1)*P(Y=1) = 1/2*1/2 = 1/4
+  
+  
+  Hence,  P(X=x, Y=y) = P(X=x)*P(Y=y) ∀ x,y . X,Y are independent random variables
