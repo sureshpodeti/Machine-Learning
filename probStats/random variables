@@ -1,0 +1,19 @@
+*Random Variable*
+ Real valued function that assigns a numerical value to each possible outcome of the random experiment.
+ Real valued function that maps each outcome with a numerical value based on some criteria
+ 
+  Let X be random variable; X: S → R , S = sample space, R real value
+ Denoted by capital letters X,Y,Z.. etc.
+ 
+ Eg: Tossing a coin 5 times. 
+      Possible outcomes are S = {TTTTT,TTTTH,...,HHHHH}, total 2^5 = 32 possible outcomes are there
+      Let X be the random variable the maps the possible outcomes to the no.of heads in each outcome
+      
+      X  = {0,1,2,3,4,5}
+      
+*Range of random variable*
+  Represented as Rx or Range(X); set of possible values of X, the random variable
+  
+  Range(X)=RX={0,1,2,3,4,5}
+      
+      
