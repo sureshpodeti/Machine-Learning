@@ -1,0 +1,30 @@
+** Discrete Random variable **
+X is discrete random variable, if its range is countable
+
+
+** Probability mass function (PMF) ** 
+Let X be a discrete random variable with range Rx = Range(X) = {x1,x2,x3,...} (finite or countably infinite).
+Event A = {X=xk} is defined as the set of outomes s in the sample space S for which the corresponding value of
+X is equal to xk.
+
+          A  = {s ∈  S | X(s) = xk}
+          
+  The probabilities of events {X=xk} are formally shown by the probability mass function (pmf) of X.
+  
+  Px(xk) = P(X=xk), for k=1,2,3,...
+  
+  
+  Notation: Px Denotes the PMF of the random variable X.
+  Px(1)  Denote the probability that X = 1
+  
+  
+  Example: I toss a fair coin twice, and let X be defined as the number of heads I observe. 
+  Find the range of X, RX, as well as its probability mass function PX.
+  Solution: 
+           S = {HH, HT, TT, TH} , |S| = 4
+           Let X be random variables that tells the #.of heads 
+           Rx = {0,1,2}, since the range of X is countable hence, X is discrete random variable
+           
+           Pmf of X; Px(X=0) = 1/4, Px(X=1) = 1/2, Px(X=2) = 1/4
+           
+  
