@@ -44,5 +44,16 @@ Solution:
    Expectation of random variable Y;
    E[Y] = 0*1/5 + 1/√2 * 2/5 + 1*1/5 = 1/5(√2+1)
    
+   
+   
+   ** Expectation **
+   Expected Value of a Function of a Random Variable (LOTUS)
+Let X be a discrete random variable with PMF PX(x), and let Y=g(X). Suppose that we are interested in finding EY. 
+One way to find EY is to first find the PMF of Y and then use the expectation formula EY=E[g(X)]= y∈R∑YyPY(y). 
+But there is another way which is usually easier. It is called the law of the unconscious statistician (LOTUS).
+
+Law of the unconscious statistician (LOTUS) for discrete random variables:
+E[g(X)]= xk∈∑RXg(xk)PX(xk)
+   
                     
                
