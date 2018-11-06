@@ -1,0 +1,15 @@
+** Expectation **
+Notation: 
+  Let X be the random variable with range Rx
+  EX = E[X] = E(X) 
+  mostly used E[X]
+  
+  Average is a single number that describes the whole collection. 
+  The expected value is defined as the weighted average of the values in the range.
+  
+  E[X] = k ∈ Rx ∑ k* Px(X=k) 
+  
+  
+Q. Let X∼Bernoulli(p). Find EX.?
+solution: Since X∼Bernoulli(p), Range(X) = Rx = {0,1}
+   E[X] = 0*(1-p) + 1*p = p
