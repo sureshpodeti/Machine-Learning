@@ -4,7 +4,7 @@ If X is a random variable and Y = g(X), then Y itself is a random variable. Thus
 Range of Y can be written as: Ry = {g(k) | k∈Rx}
 
 If we already know the PMF of X, to find the PMF of Y = g(X), we can write;
-                  Py(Y) = P(Y=y)
+                  PY(Y) = P(Y=y)
                         = P(g(X) = y)
                   
 Q. Let X be a discrete random variable with PX(k)=1/5 for k=−1,0,1,2,3. Let Y=2|X|. Find the range and PMF of Y.
@@ -15,14 +15,34 @@ Solution:
                                          
                Range(Y) = Ry = {0,2,4,6}
                
-               Py(Y=0) = P(2|X| = 0) = P(X = 0) = 1/5
-               Py(Y=2) = P(2|X| = 2) = P(X=1) or P(X=-1) = P(X=1 ∪ X=-1) = 2/5
-               Py(Y=4) = P(2|X| = 4) = P(X=2) or P(X=-2) = 1/5
-               Py(Y=6) = P(2|X| = 6) = P(X=3) or P(X=-3) = 1/5
+               PY(Y=0) = P(2|X| = 0) = P(X = 0) = 1/5
+               PY(Y=2) = P(2|X| = 2) = P(X=1) or P(X=-1) = P(X=1 ∪ X=-1) = 2/5
+               PY(Y=4) = P(2|X| = 4) = P(X=2) or P(X=-2) = 1/5
+               PY(Y=6) = P(2|X| = 6) = P(X=3) or P(X=-3) = 1/5
                
                
-               Py(Y) = 1/5, for k=0,4,6
+               PY(Y) = 1/5, for k=0,4,6
                        2/5, for k=2
                        0, otherwise
+                       
+                       
+ Q. Let X be a discrete random variable with range RX={0,π/4,π/2,3π/4,π}, such that PX(0)=PX(π/4)=PX(π/2)=PX(3π/4)=PX(π)=1/5. 
+ Find E[sin(X)].?
+ Solution: 
+   RX={0,π/4,π/2,3π/4,π}
+   Y = sin(X) 
+   
+   RY = {0,1/√2, 1}
+   
+   PY(Y=0) = PY(sin(X) = 0) = PX(X=0) = 1/5
+   PY(Y=1/√2) = PY(sin(X) = 1/√2) = PX(X=π/4) or PX(X=3π/4) = 2/5
+   PY(Y=1) = PY(sin(X)=1) = PX(X=π/2) = 1/5
+   
+   PY(k) = 1/5, for k=0,1
+           2/5, for k = 1/√2
+   
+   Expectation of random variable Y;
+   E[Y] = 0*1/5 + 1/√2 * 2/5 + 1*1/5 = 1/5(√2+1)
+   
                     
                
