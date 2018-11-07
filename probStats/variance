@@ -1,0 +1,35 @@
+** Variance ** 
+If two distributions have same mean, mean doesnot perfectly/exactly describes the distribution of the data.
+We need some thing to describe the distribution or spread of data.
+
+The variance is a measure of how spread out the distribution of a random variable is.
+
+Here, the variance of Y is quite small since its distribution is concentrated at a single value, 
+while the variance of X will be larger since its distribution is more spread out.
+
+Definition: 
+  The variance of a random variable X, with mean EX=E[X] = μX, is defined as
+  Var(X)=E[(X−μX)^2]. Variance is defined as expected value of the Random variable Y = (X-μX)^2.
+  
+  
+ Lotus definition; E[(X−μX)^2] = k ∈ RX Σ(k−μX)^2* PX(k) 
+ 
+ Var(X) has a different unit than X. For example, if X is measured in meters then Var(X) is in meters^2.
+ To solve this issue, we define another measure, called the standard deviation, usually shown as σX, 
+ which is simply the square root of variance.
+ 
+ The standard deviation of a random variable X is defined as
+                SD(X)=σX=√Var(X).
+                
+** Computational forumlae for variance ** 
+      Var(X)=E[X2]−E[X]^2
+      
+      Var(X) = E[(X-μX)^2] = E[X^2 - 2*X*μX + μX^2]
+                           = E[X^2] - 2*μX*E[X] + E[μX^2]
+                           = E[X^2] - 2*μX^2 + μX^2
+                           = E[X^2] - E[X]^2
+
+
+Theorem 
+If X1,X2,⋯,Xn are independent random variables and X=X1+X2+⋯+Xn, then
+Var(X)=Var(X1)+Var(X2)+⋯+Var(Xn)
