@@ -1,0 +1,78 @@
+Random process:
+   Any process or event or experiment with `uncertain outcomes`.
+   Why the outcome is uncertain?
+      Our knowledge about the outcome is limited.
+   
+Probability:
+   Mathematical framework that allows us to `describe` and
+   `analyze` random phenomena.
+   - measure of how like the event is 
+
+
+Random variable:
+   Is a Real-valued function that assigns a numerical value to each 
+   possible outcome of the random experiemnt
+   Quantifing the random process outcome,giving a number to each outcome
+   Example:
+     Rolling two dice, Random variable X could represent the sum of the
+     outcomes from the two dice
+     X could hold 36 values they are all random
+   
+
+PMF or CFD:
+ Probability mass function, cumulative distribution function
+ - Functions describe the distribution of random variables 
+
+CFD can be defined for any kind of random variables (discrete, continous, mixed)
+but PMF is defined only for discrete random variables
+
+for continuous random variables we use PDF( Probability density function)
+CFD for PMF is discontinous function.
+CFD for PDF is continous function
+
+
+PMF is probability, where as PDF is the density not probability 
+
+
+
+Statitical Inference
+--------------------
+ is a "collection of methods" that deal with drawing conclusions
+ from data that are prone to random variation.
+
+ General setup for a statistical inference problem:
+      There is a unknown quantity that we would like to estimate from the data.
+
+   Two approaches for estimating unknown quantity:
+     1. Frequentist ( classical) inference
+
+        Assumption: unknown quantity assumed to be fixed quantity, and deterministic (non-random).
+        Deals with estimating non-random quantities, but sampling is random phenomena
+
+     2. Baysian Inference
+        Assumption: unknown quantity is assumed to be a random variable, and we 
+        assume that we have some initial guess about the distribution of unknown
+        quantity. After observing the data, we update the distribution of unknown
+        quantify using bayes rule.
+
+
+
+
+
+Hypothesis testing:
+	- Defined for discreate random variables
+	- Aim at small probability of incorrect decision
+Estimation:
+        - Defined for continous random variables
+        - aim at a small estimation error interval
+
+
+
+sampling distribution vs likelihood:
+---------------------------------
++ sampling distribution:
+	- before knowing the data, we write the prob distribution for data given parameters
+        - thinking of distribution for data
++ likelihood
+        - given data (sample data), we write the prob (no distribution) of data given parameters
+
