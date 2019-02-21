@@ -1,0 +1,4 @@
+Estimating unknown quantity(theta)
+   - Assume theta as a random variable
+   - Assume some initial guess about the distribution of theta, called prior distribution
+   - After observing some data, we update the distribution of theta(this is done using bayes rule)
