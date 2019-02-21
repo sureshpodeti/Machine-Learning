@@ -1,0 +1,18 @@
+Any problem can be categorized into following:
+ 1. search problem
+ 2. verification problem
+
+
+polynomial (P) : SORTING 
+
+Hardest problmes of NP are in NP-complete
+Hardest problems of NP are in some of NP- Hard.
+
+NP - Hard problems are at least as hard as the hardest problem in NP-complete.
+
+
+
+
+
+
+Hardest problems in NP became known as NP-complete problems.

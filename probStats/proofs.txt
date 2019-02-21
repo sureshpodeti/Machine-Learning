@@ -1,0 +1,106 @@
+proof by contradiction:
+1. Given a statment ?
+2. Assume ¬?
+3. deduce the logical statements from ? and ¬? representations
+4. arrive at a conclusion , false
+5. hence the assumption is wrong, and ? is true.
+
+
+    + stating pt   there is only one specific starting pt
+    |       |
+    |       |      there could be many possible ways to reach goal from specific starting pt.s
+    |       |
+    |       |
+    + goal, proves assumption wrong
+
+
+
+   at starting pt, we assume by such an object exists
+   and, using assumed object we should deduce false consequences or contradictiory statement.
+
+-------------------------------------------------------------------------------------------
+proof by contradiction is a good approach:1. when there's no obvious place to start.
+                                          2. useful method to prove nonexistent statements
+-------------------------------------------------------------------------------------------
+
+
+
+***Assumption
+ construct objects based on the assumption
+ deduce some logical information from objects which ultimately reaches contraction of the assumption
+Conclustion
+
+*** some times better to represent the statement in the form of contrapositive(f => ? then constrapositive statement is: ¬? => ¬f ) and prove.
+
+*** To prove a statement which has universal quantifiers: It's better to find a counter example.
+     statement: "All birds can fly"
+     answer: false, it is sufficient to given a counter example here it is ostrich. which can not fly although it is bird 
+
+
+
+
+
+
+Greedy algorithm proofs:
+  1. Greedy stays ahead
+  2. Exchange arguments
+
+***when you trying to write a proof that shows that a greedy algorithm is correct.
+  we often need to show following:
+  1. algorithm produces a feasible solution, a solution to the problem that 
+   obeys the constraints
+
+  2. algorithm produces an optimal solution, solution that maximizes or minimizes appropriate quantity.
+
+   ***** these proofs work by induction, showing that at each step, the greedy choice does not
+   violate the constraints and that the algorithm terminates with a correct solution.
+    
+ "GREEDY STAYS AHEAD"
+ --------------------
+  The idea of a greedy stays ahead proof is to inductively prove that under some measure,
+  the partial solutions produced by the greedy algorithm "stay ahead" of the partial solutions
+  produced by any other algorithm. Generally such a proof then goes on to show that since
+  the final solution produced by the greedy algorithm is ahead of any other solution, the
+  greedy algorithm does in fact return the optimal solution.
+
+  Typically, we would structure a "greedy stays ahead" argument in four steps:
+   1. Define your solution:
+      your algorithm will produce some object X and you will probably compare it against
+      some optimal solution X*. Introduce some variables denoting your algorithm's solution
+      and the optimal solution
+
+   2. Define your measure:
+      our goal is to find a series of measurements you can make of your solution and the 
+      optimal solution. Define some series of measures m1(X), m2(X), ...,mn(X) such that
+      m1(X*), m2(X*), ... mk(X*) is also defined for some choices fo m and n.
+    
+      Note that there might be a different number of measures for X and X*, since you can't
+      assume at this point that X is optimal.
+
+   3. prove optimality
+
+
+
+label the partial solutions
+define a measure
+prove greeady staty ahead: by induction
+prove optimality: by contradiction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
